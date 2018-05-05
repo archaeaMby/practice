@@ -1,0 +1,29 @@
+# 2018-02-26
+gene_exon_len_dict = {}
+with open(r'/Users/nanshenshiqianxuesen/Desktop/data/hg19_refseq_gene_table', 'r') as input_file:
+    header = input_file.readline()
+    for line in input_file:
+        line = line.strip().split('\t')
+
+        exon_total_len = 0
+
+        exon_count = int(line[8])
+        exon_strat = map(int, line[9].strip(',').split(','))
+        exon_end = map(int, line[10].strip(',').split(','))
+
+        for index in range(exon_count):
+            exon_total_len = exon_total_len + exon_end[index] - exon_strat[index]
+
+        gene_id = line[12]
+
+        if gene_exon_len_dict.get(gene_id) is None:
+            gene_exon_len_dict[gene_id] = exon_total_len
+        else:
+            if gene_exon_len_dict.get(gene_id) < exon_total_len:
+                gene_exon_len_dict[gene_id] = exon_total_len
+
+
+print(len(gene_exon_len_dict))
+
+
+

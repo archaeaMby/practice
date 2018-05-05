@@ -16,7 +16,7 @@ def hello(name, index):
 print(hello('mmm', 2))
 
 #
-f = open('/Users/nanshenshiqianxuesen/Desktop/chrM.fa', 'r')
+f = open('/Users/nanshenshiqianxuesen/Desktop/data/chrM.fa', 'r')
 for line in f:
     g = line.strip()
     print(g)
