@@ -19,6 +19,7 @@ else:
 
 a = 255
 b = []
+c =0
 while a % 2 != 0:
     a = a/2
     b.append(1)
